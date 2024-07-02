@@ -1,9 +1,10 @@
-/*const { Router } = require("express");
+const { Router } = require("express");
 const routes = new Router();
 
-routes.use("/clietes");
-routes.use("/produtos");
-routes.use("/carrinho");
+const ClientRoutes = require("./v1/client.routes");
+
+routes.use("/clients", ClientRoutes);
+//routes.use("/produtos");
+//routes.use("/carrinho");
 
 module.exports = routes;
-*/
