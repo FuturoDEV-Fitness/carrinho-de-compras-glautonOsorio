@@ -9,17 +9,16 @@ class Server {
   constructor(app = express()) {
     this.app = app;
     this.middlewares();
-    //this.routes();
+    this.routes();
     this.initializeServer();
   }
   middlewares() {
     this.app.use(cors());
     this.app.use(express.json());
   }
-  /*
   routes() {
     this.app.use(routes);
-  }*/
+  }
 
   initializeServer() {
     this.app.listen(PORT_API, () => {
