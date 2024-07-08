@@ -31,8 +31,12 @@ module.exports.findAllProducts = async (req, res) => {
 
       res.status(200).json(result.rows[0]);
     } else {
-      query = "SELECT * FROM products";
-
+      query = `
+      SELECT p.id, p.name, p.amount, p.color, p.voltage, p.description, 
+             c.id as category_id, c.name as category_name
+      FROM products p
+      INNER JOIN categories c ON p.category_id = c.id
+    `;
       result = await Database.query(query);
 
       res.status(200).json(result.rows);
