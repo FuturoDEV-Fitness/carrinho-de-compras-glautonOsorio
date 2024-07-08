@@ -8,9 +8,9 @@ module.exports.deleteClient = async (req, res) => {
       [id]
     );
     if (result.rows.length === 0) {
-      return res.status(404).json({ error: "Client not found" });
+      return res.status(200).json({ message: "Client deleted successfully" });
     }
-    res.status(200).json({ message: "Client deleted successfully" });
+    return res.status(404).json({ error: "Client not found" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

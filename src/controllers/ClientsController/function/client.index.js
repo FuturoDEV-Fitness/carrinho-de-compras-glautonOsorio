@@ -1,8 +1,8 @@
 const Database = require("../../../database/config/Database");
 
 module.exports.findAllClients = async (req, res) => {
-  const { id } = req;
   try {
+    const { id } = req.params;
     if (id) {
       const result = await Database.query(
         "SELECT * FROM clients WHERE id = $1",
@@ -17,6 +17,6 @@ module.exports.findAllClients = async (req, res) => {
       return res.status(200).json(result.rows);
     }
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: err });
   }
 };
