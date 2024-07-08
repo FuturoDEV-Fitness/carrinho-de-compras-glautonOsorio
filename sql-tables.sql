@@ -56,5 +56,30 @@ CREATE TABLE order_items (
 );
 
 
+INSERT INTO clients (id, name, email, cpf, contact)
+VALUES 
+(1, 'John Doe', 'johndoe@example.com', '123.456.789-00', '1234567890'),
+(2, 'Jane Smith', 'janesmith@example.com', '987.654.321-00', '9876543210'),
+(3, 'Michael Johnson', 'michaeljohnson@example.com', '456.789.123-00', '4567891230');
 
+
+
+INSERT INTO products (id, name, amount, color, voltage, description, category_id)
+VALUES 
+(1, 'Laptop', 10, 'Silver', '220', 'High-performance laptop for professionals', 1),
+(2, 'T-Shirt', 50, 'Red', NULL, 'Comfortable cotton t-shirt', 3),
+(3, 'Microwave', 5, 'White', '110', 'Compact microwave oven', 4);
+
+
+INSERT INTO orders (id, client_id, total, address, observations)
+VALUES 
+(1, 1, 150.00, '123 Main St, Anytown, USA', 'Please deliver before 5 PM'),
+(2, 2, 75.50, '456 Elm St, Othertown, USA', 'Call before delivery');
+
+
+
+INSERT INTO order_items (id, order_id, product_id, amount, price)
+VALUES 
+(1, 1, 1, '1', 150.00),
+(2, 2, 3, '2', 75.50);
 
